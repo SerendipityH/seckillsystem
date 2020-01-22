@@ -1,5 +1,8 @@
 package com.serendipity.seckillsystem.redis;
 
+/**
+ * @author serendipity
+ */
 public class UserKey extends BasePrefix {
     private UserKey(String prefix) {
         super(prefix);
