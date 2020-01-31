@@ -17,10 +17,10 @@ import javax.validation.Payload;
 /**
  * @author serendipity
  */
-@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = {IsMobileValidator.class })
+@Constraint(validatedBy = {IsMobileValidator.class})
 public @interface IsMobile {
     String message() default "手机号码格式错误";
 

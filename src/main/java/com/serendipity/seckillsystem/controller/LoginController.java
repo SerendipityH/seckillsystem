@@ -60,7 +60,7 @@ public class LoginController {
             return Result.error(CodeMsg.MOBILE_ERROR);
         }*/
         //登录
-        miaoshaUserService.login(response,loginVo);
+        miaoshaUserService.login(response, loginVo);
         return Result.success(true);
     }
 }

@@ -15,11 +15,12 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public User getById(Integer id){
+    public User getById(Integer id) {
         return userDao.getById(id);
     }
+
     //@Transactional
-    public Boolean tx(){
+    public Boolean tx() {
         User u1 = new User();
         u1.setId(4);
         u1.setName("44444");

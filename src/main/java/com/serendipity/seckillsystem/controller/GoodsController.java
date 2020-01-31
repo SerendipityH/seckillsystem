@@ -38,10 +38,9 @@ public class GoodsController {
     private MiaoshaUserService miaoshaUserService;
 
     @RequestMapping("/to_list")
-    public String toList(Model model,MiaoshaUser user)
-    {
+    public String toList(Model model, MiaoshaUser user) {
 
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         return "goods_list";
     }
 

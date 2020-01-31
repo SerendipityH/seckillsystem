@@ -12,7 +12,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserDao {
     /**
-     *
      * @param id
      * @return
      */

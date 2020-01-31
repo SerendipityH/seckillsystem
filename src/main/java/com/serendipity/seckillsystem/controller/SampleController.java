@@ -22,31 +22,31 @@ public class SampleController {
     private RedisService redisService;
 
     @RequestMapping("/db/get")
-    public Result<User> dbGet(Integer id){
+    public Result<User> dbGet(Integer id) {
         User user = userService.getById(id);
         return Result.success(user);
     }
 
 
     @RequestMapping("/db/tx")
-    public Result<Boolean> dbTX(Integer id){
+    public Result<Boolean> dbTX(Integer id) {
         userService.tx();
         return Result.success(true);
     }
 
     @RequestMapping("/redis/get")
-    public Result<User> redisGet(Integer id){
-       User user = redisService.get(UserKey.getById,""+1, User.class);
+    public Result<User> redisGet(Integer id) {
+        User user = redisService.get(UserKey.getById, "" + 1, User.class);
         return Result.success(user);
     }
 
 
     @RequestMapping("/redis/set")
-    public Result<User> redisSet(Integer id){
+    public Result<User> redisSet(Integer id) {
         User user = new User();
         user.setId(1);
         user.setName("11111111111");
-        redisService.set(UserKey.getById,""+1,user);
+        redisService.set(UserKey.getById, "" + 1, user);
 
         return Result.success(user);
     }

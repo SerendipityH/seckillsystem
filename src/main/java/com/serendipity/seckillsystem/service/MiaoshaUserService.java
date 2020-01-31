@@ -53,10 +53,11 @@ public class MiaoshaUserService {
             throw new GlobalException(CodeMsg.PASSWORD_ERROR);
         }
         //
-        addCookie(response,user);
+        addCookie(response, user);
         return true;
     }
-    private void addCookie(HttpServletResponse response,MiaoshaUser user){
+
+    private void addCookie(HttpServletResponse response, MiaoshaUser user) {
         //生成cookie
         String token = UUIDUtil.uuid();
         redisService.set(MiaoShaUserKey.token, token, user);
@@ -65,14 +66,15 @@ public class MiaoshaUserService {
         cookie.setPath("/");
         response.addCookie(cookie);
     }
-    public MiaoshaUser getByToken(HttpServletResponse response,String token) {
-        if(StringUtils.isEmpty(token)){
-           return null;
+
+    public MiaoshaUser getByToken(HttpServletResponse response, String token) {
+        if (StringUtils.isEmpty(token)) {
+            return null;
         }
         MiaoshaUser user = redisService.get(MiaoShaUserKey.token, token, MiaoshaUser.class);
         //延长有效期
-        if(user != null){
-            addCookie(response,user);
+        if (user != null) {
+            addCookie(response, user);
         }
 
         return user;

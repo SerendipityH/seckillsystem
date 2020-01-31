@@ -22,11 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Service
 public class UserArgumentResolver implements HandlerMethodArgumentResolver {
-   
+
     @Autowired
     private MiaoshaUserService miaoshaUserService;
-    
-    
+
+
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
         Class<?> aClass = methodParameter.getParameterType();
@@ -39,19 +39,19 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
         HttpServletResponse response = nativeWebRequest.getNativeResponse(HttpServletResponse.class);
 
         String paramToken = request.getParameter(MiaoshaUserService.COOKIE_NAME_TOKEN);
-        String cookieToken = getCookieValue(request,MiaoshaUserService.COOKIE_NAME_TOKEN);
-          if(StringUtils.isEmpty(cookieToken)&& StringUtils.isEmpty(paramToken)){
+        String cookieToken = getCookieValue(request, MiaoshaUserService.COOKIE_NAME_TOKEN);
+        if (StringUtils.isEmpty(cookieToken) && StringUtils.isEmpty(paramToken)) {
             return null;
         }
-        String token = StringUtils.isEmpty(paramToken)?cookieToken:paramToken;
-        return miaoshaUserService.getByToken(response,token);
-         
+        String token = StringUtils.isEmpty(paramToken) ? cookieToken : paramToken;
+        return miaoshaUserService.getByToken(response, token);
+
     }
 
     private String getCookieValue(HttpServletRequest request, String cookieName) {
         Cookie[] cookies = request.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals(cookieName)){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals(cookieName)) {
                 return cookie.getValue();
             }
         }

@@ -83,7 +83,7 @@ public class RedisService {
     }
 
     /**
-     减少
+     * 减少
      */
     public <T> Long decr(KeyPrefix prefix, String key, T value) {
         Jedis jedis = null;
