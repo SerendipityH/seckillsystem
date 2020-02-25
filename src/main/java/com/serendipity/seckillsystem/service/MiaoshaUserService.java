@@ -1,6 +1,7 @@
 package com.serendipity.seckillsystem.service;
 
 import com.serendipity.seckillsystem.dao.MiaoshaUserDao;
+import com.serendipity.seckillsystem.domain.MiaoshaGoods;
 import com.serendipity.seckillsystem.domain.MiaoshaUser;
 import com.serendipity.seckillsystem.exception.GlobalException;
 import com.serendipity.seckillsystem.redis.MiaoShaUserKey;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author serendipity
@@ -33,7 +36,6 @@ public class MiaoshaUserService {
     public MiaoshaUser getById(Long id) {
         return miaoshaUserDao.getById(id);
     }
-
     public boolean login(HttpServletResponse response, LoginVo loginVo) {
         if (null == loginVo) {
             throw new GlobalException(CodeMsg.SERVER_ERROR);
@@ -65,6 +67,9 @@ public class MiaoshaUserService {
         cookie.setMaxAge(MiaoShaUserKey.token.expireSeconds());
         cookie.setPath("/");
         response.addCookie(cookie);
+        ArrayList list = new ArrayList<>();
+        list.add(1);
+
     }
 
     public MiaoshaUser getByToken(HttpServletResponse response, String token) {

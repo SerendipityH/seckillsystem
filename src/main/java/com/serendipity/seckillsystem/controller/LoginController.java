@@ -1,5 +1,6 @@
 package com.serendipity.seckillsystem.controller;
 
+import com.serendipity.seckillsystem.domain.MiaoshaGoods;
 import com.serendipity.seckillsystem.redis.RedisService;
 import com.serendipity.seckillsystem.result.CodeMsg;
 import com.serendipity.seckillsystem.result.Result;
@@ -17,6 +18,7 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.Date;
 
 
 /**

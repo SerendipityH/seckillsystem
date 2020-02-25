@@ -44,5 +44,8 @@ public class GoodsController {
         return "goods_list";
     }
 
+    public void test(){
+
+    }
 
 }

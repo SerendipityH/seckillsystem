@@ -47,7 +47,8 @@ public class SampleController {
         user.setId(1);
         user.setName("11111111111");
         redisService.set(UserKey.getById, "" + 1, user);
-
+        
         return Result.success(user);
     }
+
 }
